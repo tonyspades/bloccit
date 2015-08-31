@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
+
+Post.delete_all
+Comment.delete_all
  
  # Create Posts
  50.times do
@@ -27,3 +30,12 @@ require 'faker'
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
+
+ Advertisement.create!(
+ 	title: Faker::Lorem.sentence,
+ 	copy: Faker::Lorem.paragraph,
+ 	price: Faker::Lorem.character
+ 	)
+
+ puts "Seed finished"
+ puts "#{Advertisement.count} advertisement created"
