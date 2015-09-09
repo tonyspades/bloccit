@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :question
+
+  resources :questions
+
   resources :posts
 
   get "welcome/index"
