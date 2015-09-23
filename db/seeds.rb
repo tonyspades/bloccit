@@ -18,6 +18,8 @@ require 'faker'
    user.save!
  end
  users = User.all
+
+
  
  # Note: by calling `User.new` instead of `create`,
  # we create an instance of User which isn't immediately saved to the database.
@@ -48,12 +50,34 @@ require 'faker'
  end
  
 
-user = User.first
- user.skip_reconfirmation!
- user.update_attributes!(
-   email: 'tonyspades@gmail.com',
+#Create an admin user
+ admin = User.new(
+   name:     'Admin User',
+   email:    'tonyspades@gmail.com',
+   password: 'helloworld',
+   role:     'admin'
+ )
+ admin.skip_confirmation!
+ admin.save!
+ 
+ # Create a moderator
+ moderator = User.new(
+   name:     'Moderator User',
+   email:    'tonyspades@gmail.com',
+   password: 'helloworld',
+   role:     'moderator'
+ )
+ moderator.skip_confirmation!
+ moderator.save!
+ 
+ # Create a member
+ member = User.new(
+   name:     'Member User',
+   email:    'member@example.com',
    password: 'helloworld'
  )
+ member.skip_confirmation!
+ member.save!
 
 
  puts "Seed finished"
