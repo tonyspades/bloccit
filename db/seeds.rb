@@ -26,7 +26,16 @@ require 'faker'
      description:  Faker::Lorem.paragraph
    )
  end
- topics = Topic.all                                   
+ topics = Topic.all  
+
+ # Create Summaries
+ 15.times do
+  Summary.create!(
+    name:          Faker::Lorem.sentence,
+    description:   Faker::Lorem.paragraph
+     )             
+     end
+     summaries = Summary.all                    
 
 
  
