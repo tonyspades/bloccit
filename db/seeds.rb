@@ -43,7 +43,7 @@ require 'faker'
  50.times do
    Post.create!(
    	 user: 	 users.sample,
-     topic: topics.sample,
+     topic:  topics.sample,
      title:  Faker::Lorem.sentence,
      body:   Faker::Lorem.paragraph
    )
@@ -63,7 +63,7 @@ require 'faker'
 #Create an admin user
  admin = User.new(
    name:     'Admin User',
-   email:    'tonyspades@gmail.com',
+   email:    'admin@example.com',
    password: 'helloworld',
    role:     'admin'
  )
@@ -73,7 +73,7 @@ require 'faker'
  # Create a moderator
  moderator = User.new(
    name:     'Moderator User',
-   email:    'tonyspades@gmail.com',
+   email:    'moderator@example.com',
    password: 'helloworld',
    role:     'moderator'
  )
@@ -92,5 +92,6 @@ require 'faker'
 
  puts "Seed finished"
  puts "#{User.count} users created"
+ puts "#{Topic.count} topics created"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
