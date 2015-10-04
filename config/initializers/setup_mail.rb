@@ -1,4 +1,4 @@
-if Rails.env.production?
+if Rails.env.development? || Rails.env.production?
   config_path = File.expand_path(Rails.root.to_s + '/config/secrets.yml')
   if File.exists? config_path
     ENV.update YAML.load_file(config_path)[Rails.env]
