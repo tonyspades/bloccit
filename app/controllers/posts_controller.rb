@@ -3,8 +3,10 @@ class PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
-    @comments = @post.comments
+    @comments = @post.comments.to_a
     @comment = @post.comments.build
+    authorize @comment
+    authorize @comments
   end
 
   def new

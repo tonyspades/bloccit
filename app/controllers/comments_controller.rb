@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = @topic.posts.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
+    authorize @comment
     @comment.user_id = current_user.id
     if @comment.save
       redirect_to [@topic, @post], notice: "Comment saved successfully."
